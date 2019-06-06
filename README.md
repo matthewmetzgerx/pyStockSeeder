@@ -46,3 +46,5 @@ python BuildHistoryFile.py
 *this one should go somewhat quickly.*
      
     
+## Author
+This project was created by [Mattew Metzger](https://matthewmetzgerx.github.io/). Please feel free to add me on [LinkedIn](https://www.linkedin.com/in/matthewmetzgerx/) (*please explain the context*).
