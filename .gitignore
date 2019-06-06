@@ -105,3 +105,9 @@ venv.bak/
 
 # config
 config.json
+
+#jetbrains
+*.idea
+
+#generated csv files
+*.csv

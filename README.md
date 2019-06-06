@@ -21,6 +21,7 @@ Ideally this tool is focused at people who have some grasp of what the Python la
         * sys
      * There is a configuration file that is necessary to run the commands. It will be called config.json and a sample template is provided called example-config.json which you will have to edit at least a very small amount before running the script.
      * This application relies on data from both wikipedia and nasdaq.com to work. I don't own those sites. If they break, it will break. But, the good news is that this seeder should only have to be run once. So, get in while it's early and you'll hopefully have nothing to worry about. 
+     * At the time of writing this, 06/06/2019, the first commit is being made. There are plans to expand this project that will come in time. To that end, some aspects of the operation may change as the idea and approach grow in size.
      
      
 ## How to Run It
@@ -32,7 +33,7 @@ This application is very simple to set up and run if you follow the instructions
 
 3. Open the example-config.json file and edit the "eodAPItoken" property where it says "your-key-goes-here". You will replace it with a key from https://eodhistoricaldata.com/, as mentioned above. You really shouldn't have to edit any other values in the config unless you want to (at your own risk). SAVE THE FILE AS *config.json*. 
 
-4. Open your command line tool and navigate to the location where you placed the files. You should see BuildHistoryFile.py, GetIndexStocks, and the config file among others. Run the following commands: 
+4. Open your command line tool and navigate to the location where you placed the files. You should see BuildHistoryFile.py, GetIndexStocks.py, and the config file among others. Run the following commands: 
 
 ```
 python GetIndexStocks.py
@@ -45,6 +46,14 @@ python BuildHistoryFile.py
 ```
 *this one should go somewhat quickly.*
      
+if there are issues, they will likely be indicated by warning messaage. Since not all stocks in the S&P 1500 are of the Nasdaq, NYSE, or AMEX exchanges, there may be a few which do not get imported. That said, there will be a good base with which to start. 
+
+
+## Moving Forward
+
+Obviously this is a very small effort but some of the subsequent effort will related to automating data updates, creating visualization code, and creating and overall predictive evaluation machine. Depending on the extent to which those efforts grow, they may be put in separate repositories. Please reach out if you'd like to chat.
+
+
     
 ## Author
 This project was created by [Mattew Metzger](https://matthewmetzgerx.github.io/). Please feel free to add me on [LinkedIn](https://www.linkedin.com/in/matthewmetzgerx/) (*please explain the context*).

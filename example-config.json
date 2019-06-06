@@ -1,0 +1,23 @@
+{
+  "eodAPItoken": "your-key-goes-here",
+  "supportingFiles": [
+    {
+    "exchange": "Nasdaq",
+    "origin": "https://www.nasdaq.com/screening/companies-by-name.aspx?letter=0&exchange=nasdaq&render=download",
+    "writeTo": "incomingdata/nasdaq.csv"
+    },
+    {
+    "exchange": "NYSE",
+    "origin": "https://www.nasdaq.com/screening/companies-by-name.aspx?letter=0&exchange=nyse&render=download",
+    "writeTo": "incomingdata/nyse.csv"
+    },
+    {
+    "exchange": "AMEX",
+    "origin": "https://www.nasdaq.com/screening/companies-by-name.aspx?letter=0&exchange=amex&render=download",
+    "writeTo": "incomingdata/amex.csv"
+    }
+  ],
+  "writeseeder": "data/sp1500seeder.csv",
+  "historyDir": "data/history/",
+  "allHistory": "data/allHistory.csv"
+}
