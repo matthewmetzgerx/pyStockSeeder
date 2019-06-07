@@ -27,7 +27,7 @@ Ideally this tool is focused at people who have some grasp of what the Python la
 ## How to Run It
 This application is very simple to set up and run if you follow the instructions here: 
 
-1. clone this repository to your computer in a directory that is easy to access from the command line (Conda, Cmder, Powershell, etc.). It should run on a Mac or Linux environment probably much easier that Windows but I haven't tested it yet.
+1. Clone this repository to your computer in a directory that is easy to access from the command line (Conda, Cmder, Powershell, etc.). It should run on a Mac or Linux environment probably much easier than Windows but I haven't tested it yet.
 
 2. As mentioned above, make sure that Python and the suggested libraries are installed. I could explain this but there is much better info on the internet and it will save us both time if I don't. 
 
