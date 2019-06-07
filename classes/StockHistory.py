@@ -34,7 +34,7 @@ class StockHistory:
 
             try:
                 data = self.get_eod_data(sym, self.token)
-                out = open(self.directory + sym + ".csv", "wt")
+                out = open(self.directory + sym + ".csv", 'w', newline='')
                 out.write(data.to_csv())
                 out.close()
             except:
