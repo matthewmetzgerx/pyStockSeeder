@@ -19,6 +19,8 @@ Ideally this tool is focused at people who have some grasp of what the Python la
         * pandas
         * requests
         * sys
+        * sqlalchemy
+        * mysql-connector-python
      * There is a configuration file that is necessary to run the commands. It will be called config.json and a sample template is provided called example-config.json which you will have to edit at least a very small amount before running the script.
      * This application relies on data from both wikipedia and nasdaq.com to work. I don't own those sites. If they break, it will break. But, the good news is that this seeder should only have to be run once. So, get in while it's early and you'll hopefully have nothing to worry about. 
      * At the time of writing this, 06/06/2019, the first commit is being made. There are plans to expand this project that will come in time. To that end, some aspects of the operation may change as the idea and approach grow in size.
@@ -46,6 +48,13 @@ python BuildHistoryFile.py
 ```
 *this one should go somewhat quickly.*
      
+
+If you choose to import the date into MySQL you can do so by adjusting the config file and performing the following:
+```
+python MySQLImport.py
+```
+*this one will probably take some time as well.*
+
 if there are issues, they will likely be indicated by warning messaage. Since not all stocks in the S&P 1500 are of the Nasdaq, NYSE, or AMEX exchanges, there may be a few which do not get imported. That said, there will be a good base with which to start. 
 
 

@@ -19,5 +19,16 @@
   ],
   "writeseeder": "data/sp1500seeder.csv",
   "historyDir": "data/history/",
-  "allHistory": "data/allHistory.csv"
+  "allHistory": "data/allHistory.csv",
+  "MySQL":
+  {
+    "host": "localhost-or-other",
+    "user": "your-username",
+    "password": "your-password",
+    "db": "your-database-name"
+  },
+  "DBTables": {
+    "stocks": "stocks",
+    "history": "history"
+  }
 }
