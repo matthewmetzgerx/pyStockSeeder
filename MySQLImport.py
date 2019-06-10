@@ -21,23 +21,30 @@ connection = pymysql.connect(host=cfg["MySQL"]["host"],
 
 
 def SQLInsertHistory(file):
-        # creates table and inserts complete stock history file into the table
-        df = pd.read_csv(file)
-        cols = ["Open", "High", "Low", "Close", "Adjusted_close", "Volume"]
-        df[cols].apply(pd.to_numeric, errors='coerce')
-        df["Date"] = pd.to_datetime(df['Date'])
+	# creates table and inserts complete stock history file into the table
+	df = pd.read_csv(file)
+	cols = ["Open", "High", "Low", "Close", "Adjusted_close", "Volume"]
+	df[cols].apply(pd.to_numeric, errors='coerce')
+	df["Date"] = pd.to_datetime(df['Date'])
 
-        database_username = cfg["MySQL"]["user"]
-        database_password = cfg["MySQL"]["password"]
-        database_ip = cfg["MySQL"]["host"]
-        database_name = cfg["MySQL"]["db"]
-        database_connection = sqlalchemy.create_engine('mysql+mysqlconnector://{0}:{1}@{2}/{3}'.
-                                                       format(database_username, database_password,
-                                                              database_ip, database_name,
-                                                              auth_plugin='mysql_native_password'))
+	database_username = cfg["MySQL"]["user"]
+	database_password = cfg["MySQL"]["password"]
+	database_ip = cfg["MySQL"]["host"]
+	database_name = cfg["MySQL"]["db"]
 
-        df.to_sql(con=database_connection, name=cfg["DBTables"]["history"], if_exists='replace')
-
+	database_connection = sqlalchemy.create_engine('mysql+mysqlconnector://{0}:{1}@{2}/{3}'.
+												   format(database_username, database_password,
+														  database_ip, database_name,
+														  auth_plugin='mysql_native_password'),
+														  pool_pre_ping=True, pool_recycle=1800)
+	batch = 20000
+	loops = (len(df)//batch) + 1
+	for it in range(0,loops):
+		df[(it*batch):((it+1)*batch)].to_sql(
+			con=database_connection, name=cfg["DBTables"]["history"], if_exists='append'
+		)
+		print("Batch " + str(it + 1) + " of " + str(loops) + " complete.")
+		
 
 def SQLInsertStockfile(file):
     # creates table and inserts the stock profile info into a table
@@ -52,7 +59,6 @@ def SQLInsertStockfile(file):
                                                    format(database_username, database_password,
                                                           database_ip, database_name,
                                                           auth_plugin='mysql_native_password'))
-
     df.to_sql(con=database_connection, name=cfg["DBTables"]["stocks"], if_exists='replace')
 
 
