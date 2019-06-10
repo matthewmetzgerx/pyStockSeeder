@@ -53,7 +53,7 @@ If you choose to import the date into MySQL you can do so by adjusting the confi
 ```
 python MySQLImport.py
 ```
-*this one will probably take some time as well.*
+*this one will probably take some time as well. Additionally, once importing the files the history will be quite large, It may be wise to index the columns you search on (symbol, Date)*
 
 if there are issues, they will likely be indicated by warning messaage. Since not all stocks in the S&P 1500 are of the Nasdaq, NYSE, or AMEX exchanges, there may be a few which do not get imported. That said, there will be a good base with which to start. 
 
