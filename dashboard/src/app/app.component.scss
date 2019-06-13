@@ -1,0 +1,10 @@
+@import '../sass/variables';
+.App{
+  .container {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 30px auto;
+    max-width: 500px;
+    border-radius: 3px;
+  }
+}
