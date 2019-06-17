@@ -24,6 +24,7 @@ Ideally this tool is focused at people who have some grasp of what the Python la
      * There is a configuration file that is necessary to run the commands. It will be called config.json and a sample template is provided called example-config.json which you will have to edit at least a very small amount before running the script.
      * This application relies on data from both wikipedia and nasdaq.com to work. I don't own those sites. If they break, it will break. But, the good news is that this seeder should only have to be run once. So, get in while it's early and you'll hopefully have nothing to worry about. 
      * At the time of writing this, 06/06/2019, the first commit is being made. There are plans to expand this project that will come in time. To that end, some aspects of the operation may change as the idea and approach grow in size.
+     * Check my update log here: [log](#log)
      
      
 ## How to Run It
@@ -61,6 +62,12 @@ if there are issues, they will likely be indicated by warning messaage. Since no
 ## Moving Forward
 
 Obviously this is a very small effort but some of the subsequent effort will related to automating data updates, creating visualization code, and creating and overall predictive evaluation machine. Depending on the extent to which those efforts grow, they may be put in separate repositories. Please reach out if you'd like to chat.
+
+## <a name="log"></a>Misc. Updates Log
+
+I have added this section for log notes of recent updates. As of writing this, updates are as follows:
+* 06/17/2019 -- I have added some code to pull Dow, Nasdaq, Vix and S&P 500 index history from Yahoo. I got some of the code to support this from here: [Interact with the yahoo finance API using python's requests library](https://maikros.github.io/yahoo-finance-python/)
+
 
 
     
