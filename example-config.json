@@ -17,18 +17,52 @@
     "writeTo": "incomingdata/amex.csv"
     }
   ],
+  "indexFiles": [
+    {
+    "index": "Dow Jones Industrial Average (^DJI)",
+    "origin": "https://query1.finance.yahoo.com/v7/finance/download/%5EDJI?period1={}&period2={}&interval=1d&events=history&crumb={}",
+    "writeTo": "incomingdata/dji.csv",
+    "startdate": "29-01-1985",
+    "relator": "dji"
+    },
+    {
+    "index": "S&P 500",
+    "origin": "https://query1.finance.yahoo.com/v7/finance/download/%5EGSPC?period1={}&period2={}&interval=1d&events=history&crumb={}",
+    "writeTo": "incomingdata/sp500.csv",
+    "startdate": "03-01-1950",
+    "relator": "sp500"
+    },
+    {
+    "index": "Nasdaq",
+    "origin": "https://query1.finance.yahoo.com/v7/finance/download/%5EIXIC?period1={}&period2={}&interval=1d&events=history&crumb={}",
+    "writeTo": "incomingdata/nasdaq.csv",
+    "startdate": "05-02-1971",
+    "relator": "nasdaq"
+    },
+    {
+    "index": "Vix",
+    "origin": "https://query1.finance.yahoo.com/v7/finance/download/%5EVIX?period1={}&period2={}&interval=1d&events=history&crumb={}",
+    "writeTo": "incomingdata/vix.csv",
+    "startdate": "02-01-1990",
+    "relator": "vix"
+    }
+  ],
   "writeseeder": "data/sp1500seeder.csv",
   "historyDir": "data/history/",
   "allHistory": "data/allHistory.csv",
   "MySQL":
   {
-    "host": "localhost-or-other",
+    "host": "localhost",
     "user": "your-username",
     "password": "your-password",
-    "db": "your-database-name"
+    "db": "your-database"
   },
   "DBTables": {
     "stocks": "stocks",
-    "history": "history"
+    "history": "history",
+    "dji": "indexDJI",
+    "sp500": "indexSP500",
+    "nasdaq": "indexNasdaq",
+    "vix": "indexVix"
   }
 }
