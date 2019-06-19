@@ -52,7 +52,13 @@ python BuildHistoryFile.py
 
 If you choose to import the date into MySQL you can do so by adjusting the config file and performing the following:
 ```
-python MySQLImport.py
+python MySQLImport.py // will import the ALL of the possible data (stocklist, history, and all 4 indexes)
+
+python MySQLImport.py stocklist // will import the stocklist only
+python MySQLImport.py history // will import the complete stock daily history only
+python MySQLImport.py indexes // will import the the corresponding vix, snp500, nasdaq and DJI data
+
+
 ```
 *this one will probably take some time as well. Additionally, once importing the files the history will be quite large, It may be wise to index the columns you search on (symbol, Date)*
 
@@ -66,6 +72,9 @@ Obviously this is a very small effort but some of the subsequent effort will rel
 ## <a name="log"></a>Misc. Updates Log
 
 I have added this section for log notes of recent updates. As of writing this, updates are as follows:
+
+* 06/18/2019 -- Some edits were made to the MySQL import to support importing the index files into MySQL as well. Now the command will have to contain an argument which specifies what is beling imported. Otherwise, the script will attempt to import all.
+
 * 06/17/2019 -- I have added some code to pull Dow, Nasdaq, Vix and S&P 500 index history from Yahoo. I got some of the code to support this from here: [Interact with the yahoo finance API using python's requests library](https://maikros.github.io/yahoo-finance-python/)
 
 
