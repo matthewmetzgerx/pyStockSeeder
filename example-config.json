@@ -60,9 +60,9 @@
   "DBTables": {
     "stocks": "stocks",
     "history": "history",
-    "dji": "indexDJI",
-    "sp500": "indexSP500",
-    "nasdaq": "indexNasdaq",
-    "vix": "indexVix"
+    "dji": "index_dji",
+    "sp500": "index_sp500",
+    "nasdaq": "index_nasdaq",
+    "vix": "index_vix"
   }
 }
