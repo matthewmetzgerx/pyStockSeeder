@@ -47,6 +47,14 @@
     "relator": "vix"
     }
   ],
+  "otherFiles": [
+   {
+     "name": "InterestRates",
+     "origin": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/pages/TextView.aspx?data=yieldAll",
+     "writeTo": "incomingdata/interestrates.csv",
+     "relator": "interestrates"
+   }
+  ],
   "writeseeder": "data/sp1500seeder.csv",
   "historyDir": "data/history/",
   "allHistory": "data/allHistory.csv",

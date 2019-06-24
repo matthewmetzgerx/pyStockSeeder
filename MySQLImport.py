@@ -12,6 +12,11 @@ except:
     print("Edit the file and change the name to config.json")
     exit(0)
 
+database_username = cfg["MySQL"]["user"]
+database_password = cfg["MySQL"]["password"]
+database_ip = cfg["MySQL"]["host"]
+database_name = cfg["MySQL"]["db"]
+
 connection = pymysql.connect(host=cfg["MySQL"]["host"],
                              user=cfg["MySQL"]["user"],
                              password=cfg["MySQL"]["password"],
@@ -28,10 +33,7 @@ def SQLInsertHistory(file, table):
     df[cols].apply(pd.to_numeric, errors='coerce')
     df["Date"] = pd.to_datetime(df['Date'])
 
-    database_username = cfg["MySQL"]["user"]
-    database_password = cfg["MySQL"]["password"]
-    database_ip = cfg["MySQL"]["host"]
-    database_name = cfg["MySQL"]["db"]
+
 
     database_connection = sqlalchemy.create_engine('mysql+mysqlconnector://{0}:{1}@{2}/{3}'.
                                                    format(database_username, database_password,
@@ -52,15 +54,19 @@ def SQLInsertStockfile(file):
     df = pd.read_csv(file)
     df["marketcap"].apply(pd.to_numeric, errors='coerce')
 
-    database_username = cfg["MySQL"]["user"]
-    database_password = cfg["MySQL"]["password"]
-    database_ip = cfg["MySQL"]["host"]
-    database_name = cfg["MySQL"]["db"]
     database_connection = sqlalchemy.create_engine('mysql+mysqlconnector://{0}:{1}@{2}/{3}'.
                                                    format(database_username, database_password,
                                                           database_ip, database_name,
                                                           auth_plugin='mysql_native_password'))
     df.to_sql(con=database_connection, name=cfg["DBTables"]["stocks"], if_exists='replace')
+
+def SQLInsertOthers(file, table):
+    df = pd.read_csv(file)
+    database_connection = sqlalchemy.create_engine('mysql+mysqlconnector://{0}:{1}@{2}/{3}'.
+                                                   format(database_username, database_password,
+                                                          database_ip, database_name,
+                                                          auth_plugin='mysql_native_password'))
+    df.to_sql(con=database_connection, name=table, if_exists='replace')
 
 
 def main():
@@ -83,6 +89,10 @@ def main():
     if (arg == "all" or arg == "indexes"):
         for ind in cfg["indexFiles"]:
             SQLInsertHistory(ind["writeTo"], cfg["DBTables"][ind["relator"]])
+
+    if (arg == "all" or arg == "otherfiles"):
+        for ind in cfg["otherFiles"]:
+            SQLInsertOthers(ind["writeTo"], cfg["DBTables"][ind["relator"]])
 
 
 main()
