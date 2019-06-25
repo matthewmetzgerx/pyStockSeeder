@@ -61,12 +61,18 @@ def SQLInsertStockfile(file):
     df.to_sql(con=database_connection, name=cfg["DBTables"]["stocks"], if_exists='replace')
 
 def SQLInsertOthers(file, table):
-    df = pd.read_csv(file)
+    df = pd.read_csv(file, low_memory=False)
     database_connection = sqlalchemy.create_engine('mysql+mysqlconnector://{0}:{1}@{2}/{3}'.
                                                    format(database_username, database_password,
                                                           database_ip, database_name,
                                                           auth_plugin='mysql_native_password'))
-    df.to_sql(con=database_connection, name=table, if_exists='replace')
+    batch = 20000
+    loops = (len(df) // batch) + 1
+    for it in range(0, loops):
+        df[(it * batch):((it + 1) * batch)].to_sql(
+            con=database_connection, name=table, if_exists='append'
+        )
+        print("Batch " + str(it + 1) + " of " + str(loops) + " complete.")
 
 
 def main():
@@ -93,6 +99,5 @@ def main():
     if (arg == "all" or arg == "otherfiles"):
         for ind in cfg["otherFiles"]:
             SQLInsertOthers(ind["writeTo"], cfg["DBTables"][ind["relator"]])
-
 
 main()
