@@ -53,6 +53,18 @@
      "origin": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/pages/TextView.aspx?data=yieldAll",
      "writeTo": "incomingdata/interestrates.csv",
      "relator": "interestrates"
+   },
+   {
+     "name": "CPIdata",
+     "origin": "https://download.bls.gov/pub/time.series/cu/cu.data.0.Current",
+     "writeTo": "incomingdata/cpidata.csv",
+     "relator": "cpidata"
+   },
+   {
+     "name": "CPIseries",
+     "origin": "https://download.bls.gov/pub/time.series/cu/cu.series",
+     "writeTo": "incomingdata/cpiseries.csv",
+     "relator": "cpiseries"
    }
   ],
   "writeseeder": "data/sp1500seeder.csv",
@@ -71,6 +83,9 @@
     "dji": "index_dji",
     "sp500": "index_sp500",
     "nasdaq": "index_nasdaq",
-    "vix": "index_vix"
+    "vix": "index_vix",
+    "interestrates": "interest_rates",
+    "cpidata": "cpi_data",
+    "cpiseries": "cpi_series"
   }
 }

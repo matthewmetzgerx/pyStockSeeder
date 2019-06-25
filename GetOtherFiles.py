@@ -29,11 +29,25 @@ def getInterestRates():
     df = pd.DataFrame(rate_data, columns=columns)
     df.to_csv(cfg["otherFiles"][0]["writeTo"], index=False)
 
+
+def getCPIdata():
+    # Add CPI data files from BLS
+
+    CPI1 = cfg["otherFiles"][1]["origin"]
+    df1 = pd.read_csv(CPI1, sep='\t')
+    df1 = df1.apply(lambda x: x.str.strip() if x.dtype == "object" else x)
+    df1.to_csv(cfg["otherFiles"][1]["writeTo"], index=False)
+
+
+    CPI2 = cfg["otherFiles"][2]["origin"]
+    df1 = pd.read_csv(CPI2, sep='\t')
+    df1 = df1.apply(lambda x: x.str.strip() if x.dtype == "object" else x)
+    df1.to_csv(cfg["otherFiles"][2]["writeTo"], index=False)
+
+
 def main():
     getInterestRates()
-
-
-
+    getCPIdata()
 
 
 main()
