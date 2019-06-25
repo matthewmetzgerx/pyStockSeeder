@@ -74,6 +74,8 @@ Obviously this is a very small effort but some of the subsequent effort will rel
 
 I have added this section for log notes of recent updates. As of writing this, updates are as follows:
 
+* 06/25/2019 -- Added request and MySQL import of historical consumer price index (CPI). 
+
 * 06/24/2019 -- Added the web-scraped file and MySQL import of bond interest rates. For many of these, the seeder imports to MySQL somewhat generically and doesn't properly type columns. Since some columns are floats they should be set to decimal and dates should be converted to a date or datetime as well to get appropriate performance, calculations, and comparisons.
 
 * 06/18/2019 -- Some edits were made to the MySQL import to support importing the index files into MySQL as well. Now the command will have to contain an argument which specifies what is beling imported. Otherwise, the script will attempt to import all.
