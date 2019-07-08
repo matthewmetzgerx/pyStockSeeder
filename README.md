@@ -74,6 +74,8 @@ Obviously this is a very small effort but some of the subsequent effort will rel
 
 I have added this section for log notes of recent updates. As of writing this, updates are as follows:
 
+* 07/07/2019 -- In the next couple of days, I am going to remove the branch with the Angular web app in it. It should be in its own repo and since it will require services and the like it's complexity will scale beyond the scope of the stock seeder. To that end, links will be provided to the new web and services repos  when they are available. 
+
 * 06/25/2019 -- Added request and MySQL import of historical consumer price index (CPI). 
 
 * 06/24/2019 -- Added the web-scraped file and MySQL import of bond interest rates. For many of these, the seeder imports to MySQL somewhat generically and doesn't properly type columns. Since some columns are floats they should be set to decimal and dates should be converted to a date or datetime as well to get appropriate performance, calculations, and comparisons.
